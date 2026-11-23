@@ -2,7 +2,7 @@
 <html lang="ko" translate="no">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google" content="notranslate">
 <meta http-equiv="Content-Language" content="ko">
 <title>Prof.AI 수능수학: 기출문제</title>
@@ -479,6 +479,51 @@ body {
 /* -- KaTeX override -- */
 .katex { font-size: 1.05em; }
 .passage .katex-display { margin: 8px 0; }
+
+/* ══════ PC 반응형 (768px+) ══════ */
+@media (min-width:768px) {
+  body { max-width: 900px; }
+  .header { padding: 18px 28px; }
+  .header h1 { font-size: 20px; }
+  .tab-bar { max-width: 900px; }
+  .tab-bar button { padding: 10px 0 8px; font-size: 12px; }
+  .tab-bar button .icon { font-size: 24px; }
+  .page { padding: 24px 24px 90px; }
+  .daily-card { padding: 32px; }
+  .daily-card h2 { font-size: 24px; }
+  .daily-card p { font-size: 14px; }
+  .daily-card .btn-start { padding: 16px 28px; font-size: 16px; }
+  .menu-grid { grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .menu-item { padding: 24px 16px; }
+  .menu-item .emoji { font-size: 32px; }
+  .menu-item .title { font-size: 14px; }
+  .menu-item .desc { font-size: 12px; }
+  #quizContent { display: flex; flex-wrap: wrap; gap: 20px; }
+  #quizContent .question-header { width: 100%; }
+  #quizContent > p { width: 100%; }
+  .passage { flex: 1; min-width: 300px; margin-bottom: 0; font-size: 15px; line-height: 2.0; max-height: 70vh; overflow-y: auto; }
+  .passage img { max-width: 100%; height: auto; }
+  .choices { flex: 1; min-width: 280px; }
+  .choice-btn { padding: 16px 18px; font-size: 15px; }
+  .choice-btn:hover { background: rgba(168,85,247,0.15); transform: translateY(-1px); }
+  #submitBtn, #afterAnswerBtns, .explanation { width: 100%; }
+  #wrongList { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-row { gap: 16px; }
+  .stat-card { padding: 22px; }
+  .stat-card .big-num { font-size: 40px; }
+  .badge-grid { gap: 12px; }
+  .badge { width: calc(25% - 10px); }
+  .rank-tab { font-size: 13px; padding: 10px 8px; }
+  .rank-item { padding: 16px 20px; }
+  .modal { max-width: 520px; }
+  .pause-box { max-width: 400px; }
+}
+@media (min-width:1200px) {
+  body { max-width: 1100px; }
+  .tab-bar { max-width: 1100px; }
+  .menu-grid { grid-template-columns: repeat(4, 1fr); }
+  .badge { width: calc(20% - 10px); }
+}
 </style>
 </head>
 <body>
