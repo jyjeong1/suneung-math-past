@@ -689,7 +689,7 @@ body {
       <div>✅ <strong>수능영어</strong> AI 문제 무제한</div>
       <div>✅ <strong>수능수학 2과목</strong> 매월 선택 (8개 중 택2)</div>
       <div>✅ 전 레벨 · AI 해설 무제한</div>
-      <div style="margin-top:8px; color:var(--sub);">현재: 무료 회원 (수학 전체 하루 5문제)</div>
+      <div style="margin-top:8px; color:var(--neon-green);">✅ 기출문제는 무료 무제한!</div>
     </div>
     <a href="https://suneung-english-ai.onrender.com/hub.html" class="submit-btn primary" style="display:block;text-align:center;font-size:15px;padding:14px;text-decoration:none;background:linear-gradient(135deg,#0055d4,#a855f7);color:#fff;border-radius:12px;font-weight:700;">🏠 Prof.AI 허브에서 구독하기</a>
     <button class="submit-btn" style="background:var(--border); color:var(--text); margin-top:8px;" onclick="document.getElementById('paymentModal').classList.remove('active')">닫기</button>
@@ -1554,18 +1554,7 @@ function closePaymentModal() {
 }
 
 async function checkFreeLimit() {
-  const todayCount = state.isPremium ? getTodayQuizCount() : await getMathDailyTotal();
-  const limit = state.isPremium ? PREMIUM_DAILY_LIMIT : FREE_DAILY_LIMIT;
-  if (todayCount >= limit) {
-    if (state.isPremium) {
-      alert('오늘의 학습 한도(20문제)에 도달했습니다.\n내일 다시 도전하세요!');
-    } else {
-      alert('오늘의 무료 수학 문제(5문제)를 모두 풀었습니다.\n프리미엄 구독(월 5,500원)으로 무제한 이용하세요!');
-      document.getElementById('paymentModal').classList.add('active');
-    }
-    return false;
-  }
-  if (!state.isPremium) { await incrementMathDaily(); }
+  // 기출문제는 무료 무제한
   return true;
 }
 
@@ -1584,13 +1573,10 @@ function updateFreeLimitStatus() {
       + '</div></div></div>';
   } else {
     el.innerHTML = '<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px 16px;">'
-      + '<div style="display:flex;align-items:center;justify-content:space-between;">'
       + '<div style="display:flex;align-items:center;gap:10px;">'
       + '<span style="font-size:20px;">📝</span>'
-      + '<div><div style="font-size:13px;font-weight:600;color:#ccc;">수학 전체 ' + remain + '/' + limit + '문제 남음</div>'
-      + '<div style="font-size:11px;color:#888;">무료 · 수학 전과목 하루 5문제</div></div></div>'
-      + '<a href="https://suneung-english-ai.onrender.com/hub.html" style="font-size:11px;color:#a855f7;text-decoration:none;padding:6px 12px;border:1px solid rgba(168,85,247,0.3);border-radius:8px;">💎 구독</a>'
-      + '</div></div>';
+      + '<div><div style="font-size:13px;font-weight:600;color:#22c55e;">기출문제 무료 무제한</div>'
+      + '<div style="font-size:11px;color:#888;">1,231문제 · 2017~2027 수능+모의평가</div></div></div></div>';
   }
 }
 
@@ -2272,7 +2258,7 @@ function updateMembershipUI() {
 function updatePremiumBanner() {
   var el = document.getElementById('premiumBanner'); if (!el) return;
   if (state.isPremium) { el.innerHTML = ''; return; }
-  el.innerHTML = '<div style="background:rgba(21,101,192,0.08);border:1.5px solid rgba(21,101,192,0.4);border-radius:14px;padding:14px 16px;cursor:pointer;" onclick="showPaymentInfo()"><div style="display:flex;align-items:center;gap:12px;"><span style="font-size:24px;">💎</span><div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#42a5f5;margin-bottom:2px;">프리미엄 · 월 5,500원 (허브에서 구독)</div><div style="font-size:11px;color:var(--sub);line-height:1.5;">단원별 + 랜덤출제 하루 30문제 · <span style="color:#42a5f5;">허브에서 구독</span></div></div></div></div>';
+  el.innerHTML = '<div style="background:rgba(34,197,94,0.08);border:1.5px solid rgba(34,197,94,0.3);border-radius:14px;padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><span style="font-size:24px;">📝</span><div style="flex:1;"><div style="font-size:13px;font-weight:700;color:#22c55e;margin-bottom:2px;">기출문제 무료 무제한</div><div style="font-size:11px;color:var(--sub);line-height:1.5;">1,231문제 · 2017~2027 수능+모의평가 전 단원</div></div></div></div>';
 }
 
 function showPaymentInfo() {
