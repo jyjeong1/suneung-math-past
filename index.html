@@ -2280,15 +2280,9 @@ async function checkPremiumStatus() {
           state.isPremium = false;
           localStorage.removeItem(ukey('isPremium_past'));
         } else {
-          // 이 과목이 선택된 과목인지 확인
-          const selected = d.selectedMathSubjects || [];
-          if (selected.includes(THIS_SUBJECT)) {
-            state.isPremium = true;
-            localStorage.setItem(ukey('isPremium_past'), 'true');
-          } else {
-            state.isPremium = false;
-            localStorage.removeItem(ukey('isPremium_past'));
-          }
+          // 기출문제는 통합 구독자에게 항상 무제한 (과목 선택 무관)
+          state.isPremium = true;
+          localStorage.setItem(ukey('isPremium_past'), 'true');
         }
       }
       // 2. 기존 개별 구독 호환
